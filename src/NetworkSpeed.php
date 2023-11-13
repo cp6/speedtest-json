@@ -12,7 +12,7 @@ class NetworkSpeed
     {
         $this->id = $id;
     }
-    
+
     public function fetchRaw(): bool|string
     {
         $url = "https://result.network-speed.xyz/r/{$this->id}.txt";

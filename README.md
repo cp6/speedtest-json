@@ -6,9 +6,9 @@ Working for versions `2023.08.28` through to `2023.11.13`
 
 Tested on versions: `2023.08.28`, `2023.09.04`, `2023.09.22`, `2023.10.24` and `2023.11.13`.
 
-All you need is the filename from the URL e.g `1699510871_9M4L81_GLOBAL` is the filename from the URL below.
+All you need is the filename from the URL e.g `1699940146_TXQDAS_NA` is the filename from the URL below.
 
-Example for https://result.network-speed.xyz/r/1699510871_9M4L81_GLOBAL.txt
+Example for https://result.network-speed.xyz/r/1699940146_TXQDAS_NA.txt
 as json:
 
 ```json
@@ -46,7 +46,8 @@ as json:
     "load": "0.00, 0.00, 0.00",
     "os": "Ubuntu 18.04.5 LTS",
     "arch": "x86_64 (64 Bit)",
-    "kernel": "4.15.0-210-generic"
+    "kernel": "4.15.0-210-generic",
+    "virtualization": "KVM"
   },
   "network": {
     "primary_network": "IPv4",

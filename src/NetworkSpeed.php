@@ -77,6 +77,9 @@ class NetworkSpeed
         preg_match('/IPv4 Access\s*:\s*(.*?)\s/', $data, $matches);
         $ipv4Access = (isset($matches[1])) ? $matches[1] === '✔' : null;
 
+        preg_match('/Virtualization\s*:\s*(.*?)\s/', $data, $matches);
+        $virtualization = $matches[1];
+
         preg_match('/Total Disk\s+:\s+([0-9.]+ [A-Z]+) \(([0-9.]+ [A-Z]+) Used\)/', $data, $diskMatches);
         preg_match('/Total RAM\s+:\s+([0-9.]+ [A-Z]+) \(([0-9.]+ [A-Z]+) Used\)/', $data, $ramMatches);
         preg_match('/CPU Model\s+:\s+([^\n]+)/', $data, $matches);
@@ -146,7 +149,7 @@ class NetworkSpeed
         preg_match('/Total UL Data\s+:\s+([0-9.]+) ([A-Za-z]+)/', $data, $totalUlDataMatches);
         preg_match('/Total Data\s+:\s+([0-9.]+) ([A-Za-z]+)/', $data, $totalDataMatches);
         preg_match('/Duration\s+:\s+([0-9]+) min ([0-9]+) sec/', $data, $durationMatches);
-        preg_match('/System Time\s+:\s+([0-9\/\:\s-]+)/', $data, $systemTimeMatches);
+        preg_match('/System Time\s+:\s+([0-9\/:\s-]+)/', $data, $systemTimeMatches);
         preg_match('/Total Script Runs\s+:\s+([0-9]+)/', $data, $totalScriptRunsMatches);
 
         return $this->parsed = [
@@ -184,6 +187,7 @@ class NetworkSpeed
                 'os' => preg_match('/OS\s+:\s+(.+)/', $data, $matches) ? trim(str_replace("OS", "", $matches[1])) : null,
                 'arch' => preg_match('/Arch\s+:\s+(.+)/', $data, $matches) ? trim(str_replace("Arch", "", $matches[1])) : null,
                 'kernel' => $kernel,
+                'virtualization' => $virtualization
             ],
             'network' => [
                 'primary_network' => $primaryNetwork,

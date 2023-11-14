@@ -1,6 +1,6 @@
 {
   "name": "corbpie/networkspeed-json",
-  "description": "network speed test to json",
+  "description": "A parser for network-speed.xyz which puts the speed test results and other information into formatted json data",
   "type": "library",
   "license": "MIT",
   "minimum-stability": "stable",
@@ -13,7 +13,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/cp6/networkspeed-json"
+      "url": "https://github.com/cp6/speedtest-json"
     }
   ],
   "require": {

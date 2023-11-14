@@ -149,6 +149,7 @@ class NetworkSpeed
 
         return $this->parsed = [
             'success' => true,
+            'id' => explode('_', $this->id)[1] ?? null,
             'version' => $version,
             'region' => preg_replace('/[^A-Za-z\s]/', '', preg_match('/Region:\s+([^)]+)/', $data, $matches) ? trim($matches[1]) : null),
             'system_time' => \DateTime::createFromFormat('d/m/Y - H:i:s', trim($systemTimeMatches[1]))->format('Y-m-d H:i:s') ?: null,

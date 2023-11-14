@@ -62,7 +62,7 @@ class NetworkSpeed
         $ram_unit = $matches[2];
 
         preg_match('/Total Swap\s*:\s*([\d.]+)\s*(\w+)\s*\(.*\)\s/', $data, $matches);
-        $swap_value = $matches[1] ?? null;
+        $swap_value = (isset($matches[1])) ? (float)$matches[1] : null;
         $swap_unit = $matches[2] ?? null;
 
         preg_match('/Kernel\s*:\s*(.*?)\s/', $data, $matches);
@@ -107,7 +107,7 @@ class NetworkSpeed
 
             if (preg_match('/^\s*([\w\s,]+)\s+(\d+\.\d+\s+ms)\s+(N\/A|\d+\.\d+\%)\s+(\d+\.\d+\s+Mbps)\s+(\d+\.\d+\s+Mbps)\s+(.+)\s*$/', $line, $matches)) {
 
-                if (!isset($matches[3])){
+                if (!isset($matches[3])) {
                     continue;
                 }
 
@@ -120,10 +120,10 @@ class NetworkSpeed
                     'loss' => (float)$matches[3],
                     'dl_value' => (float)$dl_array[0],
                     'dl_unit' => $dl_array[1],
-                    'dl_gbps' => ($dl_array[0] > 1000)? $dl_array[0] / 1000 : null,
+                    'dl_gbps' => ($dl_array[0] > 1000) ? $dl_array[0] / 1000 : null,
                     'up_value' => (float)$up_array[0],
                     'up_unit' => $up_array[1],
-                    'up_gbps' => ($up_array[0] > 1000)? $up_array[0] / 1000 : null,
+                    'up_gbps' => ($up_array[0] > 1000) ? $up_array[0] / 1000 : null,
                     'server' => trim($matches[6]),
                 ];
 

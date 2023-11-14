@@ -6,20 +6,20 @@ namespace Corbpie\NetworkSpeed;
 class NetworkSpeed
 {
 
-    public string $id;
+    public string $filename;
 
     public string $contents;
 
     public array $parsed;
 
-    public function __construct(string $id)
+    public function __construct(string $filename)
     {
-        $this->id = $id;
+        $this->filename = $filename;
     }
 
     public function fetchRaw(): bool|string
     {
-        $url = "https://result.network-speed.xyz/r/{$this->id}.txt";
+        $url = "https://result.network-speed.xyz/r/{$this->filename}.txt";
 
         $headers = [
             'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0',
@@ -149,7 +149,7 @@ class NetworkSpeed
 
         return $this->parsed = [
             'success' => true,
-            'id' => explode('_', $this->id)[1] ?? null,
+            'id' => explode('_', $this->filename)[1] ?? null,
             'version' => $version,
             'region' => preg_replace('/[^A-Za-z\s]/', '', preg_match('/Region:\s+([^)]+)/', $data, $matches) ? trim($matches[1]) : null),
             'system_time' => \DateTime::createFromFormat('d/m/Y - H:i:s', trim($systemTimeMatches[1]))->format('Y-m-d H:i:s') ?: null,

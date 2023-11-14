@@ -105,7 +105,11 @@ class NetworkSpeed
 
         foreach ($lines as $line) {
 
-            if (preg_match('/^(.+)\s+(\d+\.\d+\s+ms)\s+([0-9.]+\%)\s+([0-9.]+\s+Mbps)\s+([0-9.]+\s+Mbps)\s+(.+)$/', $line, $matches)) {
+            if (preg_match('/^\s*([\w\s,]+)\s+(\d+\.\d+\s+ms)\s+(N\/A|\d+\.\d+\%)\s+(\d+\.\d+\s+Mbps)\s+(\d+\.\d+\s+Mbps)\s+(.+)\s*$/', $line, $matches)) {
+
+                if (!isset($matches[3])){
+                    continue;
+                }
 
                 $dl_array = explode(" ", $matches[4]);
                 $up_array = explode(" ", $matches[5]);
@@ -116,26 +120,24 @@ class NetworkSpeed
                     'loss' => (float)$matches[3],
                     'dl_value' => (float)$dl_array[0],
                     'dl_unit' => $dl_array[1],
+                    'dl_gbps' => ($dl_array[0] > 1000)? $dl_array[0] / 1000 : null,
                     'up_value' => (float)$up_array[0],
                     'up_unit' => $up_array[1],
+                    'up_gbps' => ($up_array[0] > 1000)? $up_array[0] / 1000 : null,
                     'server' => trim($matches[6]),
                 ];
 
-                // Add the entry to the parsed data array
                 $parsed_data[] = $entry;
             } elseif (preg_match('/^(Avg DL Speed|Avg UL Speed|Total DL Data|Total UL Data|Total Data)\s+:\s+([0-9.]+\s+GB)/', $line, $matches)) {
-                // Extract average speed and total data information
                 $parsed_data[$matches[1]] = $matches[2];
             } elseif (preg_match('/^Duration\s+:\s+(\d+\s+min\s+\d+\s+sec)$/', $line, $matches)) {
-                // Extract duration information
                 $parsed_data['Duration'] = $matches[1];
             } elseif (preg_match('/^System Time\s+:\s+(.+)$/', $line, $matches)) {
-                // Extract system time information
                 $parsed_data['System Time'] = $matches[1];
             } elseif (preg_match('/^Total Script Runs\s+:\s+(\d+)$/', $line, $matches)) {
-                // Extract total script runs information
                 $parsed_data['Total Script Runs'] = $matches[1];
             }
+
         }
 
         preg_match('/Avg DL Speed\s+:\s+([0-9.]+) ([A-Za-z]+)/', $data, $avgDlSpeedMatches);
@@ -192,6 +194,7 @@ class NetworkSpeed
                 'host' => preg_match('/Host\s+:\s+(.+)/', $data, $matches) ? trim(str_replace("Host", "", $matches[1])) : null,
                 'location' => preg_match('/Location\s+:\s+(.+)/', $data, $matches) ? trim(str_replace("Location", "", $matches[1])) : null,
             ],
+            'number_of_results' => count($parsed_data),
             'results' => $parsed_data,
             'stats' => [
                 'avg_dl_value' => (float)$avgDlSpeedMatches[1],

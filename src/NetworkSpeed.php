@@ -77,11 +77,18 @@ class NetworkSpeed
         preg_match('/IPv4 Access\s*:\s*(.*?)\s/', $data, $matches);
         $ipv4Access = (isset($matches[1])) ? $matches[1] === '✔' : null;
 
+        preg_match('/AES-NI\s*:\s*(.*?)\s/', $data, $matches);
+        $aes = (isset($matches[1])) ? $matches[1] === '✔' : null;
+
+        preg_match('/VM-x\/AMD-V\s*:\s*(.*?)\s/', $data, $matches);
+        $vmx = (isset($matches[1])) ? $matches[1] === '✔' : null;
+
         preg_match('/Virtualization\s*:\s*(.*?)\s/', $data, $matches);
         $virtualization = $matches[1];
 
         preg_match('/Total Disk\s+:\s+([0-9.]+ [A-Z]+) \(([0-9.]+ [A-Z]+) Used\)/', $data, $diskMatches);
         preg_match('/Total RAM\s+:\s+([0-9.]+ [A-Z]+) \(([0-9.]+ [A-Z]+) Used\)/', $data, $ramMatches);
+        preg_match('/Total Swap\s+:\s+([0-9.]+ [A-Z]+) \(([0-9.]+ [A-Z]+) Used\)/', $data, $swapMatches);
         preg_match('/CPU Model\s+:\s+([^\n]+)/', $data, $matches);
 
         $cpu = $matches[1];
@@ -175,6 +182,8 @@ class NetworkSpeed
                 'swap' => [
                     'value' => $swap_value,
                     'unit' => $swap_unit,
+                    'used_value' => (float)$swapMatches[2],
+                    'used_unit' => substr($swapMatches[2], -2)
                 ],
                 'disk' => [
                     'value' => $disk_value,
@@ -187,7 +196,9 @@ class NetworkSpeed
                 'os' => preg_match('/OS\s+:\s+(.+)/', $data, $matches) ? trim(str_replace("OS", "", $matches[1])) : null,
                 'arch' => preg_match('/Arch\s+:\s+(.+)/', $data, $matches) ? trim(str_replace("Arch", "", $matches[1])) : null,
                 'kernel' => $kernel,
-                'virtualization' => $virtualization
+                'aes' => $aes,
+                'vmx' => $vmx,
+                'virtualization' => $virtualization,
             ],
             'network' => [
                 'primary_network' => $primaryNetwork,

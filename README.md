@@ -33,8 +33,10 @@ as json:
       "used_unit": "MB"
     },
     "swap": {
-      "value": 2.0,
-      "unit": "GB"
+      "value": 2,
+      "unit": "GB",
+      "used_value": 23.2,
+      "used_unit": "MB"
     },
     "disk": {
       "value": 9.6,
@@ -47,6 +49,8 @@ as json:
     "os": "Ubuntu 18.04.5 LTS",
     "arch": "x86_64 (64 Bit)",
     "kernel": "4.15.0-210-generic",
+    "aes": false,
+    "vmx": false,
     "virtualization": "KVM"
   },
   "network": {

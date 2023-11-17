@@ -8,6 +8,10 @@ Tested on versions: `2023.08.28`, `2023.09.04`, `2023.09.22`, `2023.10.24` and `
 
 All you need is the filename from the URL e.g `1699940146_TXQDAS_NA` is the filename from the URL below.
 
+Install with:
+
+`composer require corbpie/networkspeed-json`
+
 Example for https://result.network-speed.xyz/r/1699940146_TXQDAS_NA.txt
 as json:
 

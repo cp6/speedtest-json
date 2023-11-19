@@ -12,6 +12,18 @@ Install with:
 
 `composer require corbpie/networkspeed-json`
 
+Usage:
+
+```php
+require __DIR__ . '/vendor/autoload.php';
+
+use Corbpie\NetworkSpeed;
+
+$ns = new NetworkSpeed\NetworkSpeed("1699940146_TXQDAS_NA");//2023.11.13 NORTH AMERICA
+
+echo $ns->outputAsJson();
+```
+
 Example for https://result.network-speed.xyz/r/1699940146_TXQDAS_NA.txt
 as json:
 

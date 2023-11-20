@@ -1,6 +1,6 @@
 # Network Speed XYZ to Json
 
-A parser for https://network-speed.xyz/ which puts the speed test results and other information into formatted json data.
+A parser for Linux server network benchmarking https://network-speed.xyz/ to put the speed test results and other information into formatted json data.
 
 Working for versions `2023.08.28` through to `2023.11.13`
 

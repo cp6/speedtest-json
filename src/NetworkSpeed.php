@@ -183,8 +183,8 @@ class NetworkSpeed
                 'swap' => [
                     'value' => $swap_value,
                     'unit' => $swap_unit,
-                    'used_value' => (float)$swapMatches[2],
-                    'used_unit' => substr($swapMatches[2], -2)
+                    'used_value' => (isset($swapMatches[2]))? (float)$swapMatches[2] : null,
+                    'used_unit' => (isset($swapMatches[2]))? substr($swapMatches[2], -2) : null
                 ],
                 'disk' => [
                     'value' => $disk_value,

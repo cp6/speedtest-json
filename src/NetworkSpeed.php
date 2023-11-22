@@ -2,7 +2,6 @@
 
 namespace Corbpie\NetworkSpeed;
 
-
 class NetworkSpeed
 {
 
@@ -19,13 +18,11 @@ class NetworkSpeed
 
     public function fetchRaw(): bool|string
     {
-        $url = "https://result.network-speed.xyz/r/{$this->filename}.txt";
-
         $headers = [
             'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0',
         ];
 
-        $ch = curl_init($url);
+        $ch = curl_init("https://result.network-speed.xyz/r/{$this->filename}.txt");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
@@ -155,9 +152,9 @@ class NetworkSpeed
         preg_match('/Total DL Data\s+:\s+([0-9.]+) ([A-Za-z]+)/', $data, $totalDlDataMatches);
         preg_match('/Total UL Data\s+:\s+([0-9.]+) ([A-Za-z]+)/', $data, $totalUlDataMatches);
         preg_match('/Total Data\s+:\s+([0-9.]+) ([A-Za-z]+)/', $data, $totalDataMatches);
-        preg_match('/Duration\s+:\s+([0-9]+) min ([0-9]+) sec/', $data, $durationMatches);
+        preg_match('/Duration\s+:\s+(\d+) min (\d+) sec/', $data, $durationMatches);
         preg_match('/System Time\s+:\s+([0-9\/:\s-]+)/', $data, $systemTimeMatches);
-        preg_match('/Total Script Runs\s+:\s+([0-9]+)/', $data, $totalScriptRunsMatches);
+        preg_match('/Total Script Runs\s+:\s+(\d+)/', $data, $totalScriptRunsMatches);
 
         return $this->parsed = [
             'success' => true,
@@ -183,8 +180,8 @@ class NetworkSpeed
                 'swap' => [
                     'value' => $swap_value,
                     'unit' => $swap_unit,
-                    'used_value' => (isset($swapMatches[2]))? (float)$swapMatches[2] : null,
-                    'used_unit' => (isset($swapMatches[2]))? substr($swapMatches[2], -2) : null
+                    'used_value' => (isset($swapMatches[2])) ? (float)$swapMatches[2] : null,
+                    'used_unit' => (isset($swapMatches[2])) ? substr($swapMatches[2], -2) : null
                 ],
                 'disk' => [
                     'value' => $disk_value,
@@ -239,7 +236,7 @@ class NetworkSpeed
         if ($this->isCompatibleVersion()) {
 
             try {
-                return json_encode($this->asJson(), JSON_PRETTY_PRINT);
+                return json_encode($this->asJson(), JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT);
             } catch (\Exception $exception) {
                 return json_encode(['success' => false, 'message' => 'Sorry there was an error parsing this'], JSON_PRETTY_PRINT);
             }

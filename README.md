@@ -12,7 +12,7 @@ Install with:
 
 `composer require corbpie/networkspeed-json`
 
-Usage:
+Usage example:
 
 ```php
 require __DIR__ . '/vendor/autoload.php';
@@ -25,7 +25,7 @@ echo $ns->outputAsJson();
 ```
 
 Example for https://result.network-speed.xyz/r/1699940146_TXQDAS_NA.txt
-as json:
+as JSON:
 
 ```json
 {

@@ -1,12 +1,12 @@
 # Network Speed XYZ to Json
 
-A parser for Linux server network benchmarking https://network-speed.xyz/ to put the speed test results and other information into formatted json data.
+A parser for Linux server network benchmarking script https://network-speed.xyz/ to put the speed test results and other information into formatted json data.
 
 Working for versions `2023.08.28` through to `2023.11.13`
 
-Tested on versions: `2023.08.28`, `2023.09.04`, `2023.09.22`, `2023.10.24` and `2023.11.13`.
+Tested on the versions: `2023.08.28`, `2023.09.04`, `2023.09.22`, `2023.10.24` and `2023.11.13`.
 
-All you need is the filename from the URL e.g `1699940146_TXQDAS_NA` is the filename from the URL below.
+All you need is the filename from the URL. e.g `1699940146_TXQDAS_NA` is the filename from the URL below.
 
 Install with:
 

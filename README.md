@@ -454,6 +454,7 @@ as JSON:
     "total_data_value": 269.77,
     "total_data_unit": "GB",
     "duration": "00:13:13"
-  }
+  },
+  "parsed_at" : "2023-11-25 20:55:43"
 }
  ```

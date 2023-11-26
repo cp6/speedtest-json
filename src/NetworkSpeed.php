@@ -221,7 +221,8 @@ class NetworkSpeed
                 'total_data_value' => (float)$totalDataMatches[1],
                 'total_data_unit' => $totalDataMatches[2],
                 'duration' => gmdate("H:i:s", ($durationMatches[1] * 60) + $durationMatches[2])
-            ]
+            ],
+            'parsed_at' => date('Y-m-d H:i:s')
         ];
     }
 

@@ -12,6 +12,7 @@ Install with:
 
 `composer require corbpie/networkspeed-json`
 
+
 Usage example:
 
 ```php
@@ -19,442 +20,381 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Corbpie\NetworkSpeed;
 
-$ns = new NetworkSpeed\NetworkSpeed("1699940146_TXQDAS_NA");//2023.11.13 NORTH AMERICA
+$ns = new NetworkSpeed\NetworkSpeed("1700542086_ELGGKB_GLOBAL");
 
 echo $ns->outputAsJson();
 ```
 
-Example for https://result.network-speed.xyz/r/1699940146_TXQDAS_NA.txt
+Example for https://result.network-speed.xyz/r/1700542086_ELGGKB_GLOBAL.txt
 as JSON:
 
 ```json
 {
-  "success": true,
-  "id": "TXQDAS",
-  "filename": "1699940146_TXQDAS_NA",
+  "id": "ELGGKB",
+  "filename": "1700542086_ELGGKB_GLOBAL",
   "version": "2023.11.13",
-  "region": "NORTH AMERICA",
-  "system_time": "2023-11-14 05:44:29",
-  "total_script_runs": 27031,
+  "region": "GLOBAL",
+  "system_time": "2023-11-21 04:57:48",
+  "total_script_runs": 27570,
   "system": {
     "cpu": {
-      "model": "Intel(R) Xeon(R) CPU E5-2620 v3",
-      "base_freq": 2.4,
-      "cores": 2,
-      "freq": 2399.996
+      "model": "Intel(R) Xeon(R) CPU E3-1270 v3",
+      "base_freq": 3.5,
+      "cores": 8,
+      "freq": 2609.896
     },
     "ram": {
-      "value": 1.9,
+      "value": 31.3,
       "unit": "GB",
-      "used_value": 161.4,
-      "used_unit": "MB"
+      "used_value": 1.1,
+      "used_unit": "GB"
     },
     "swap": {
       "value": 2,
       "unit": "GB",
-      "used_value": 23.2,
-      "used_unit": "MB"
+      "used_value": null,
+      "used_unit": null
     },
     "disk": {
-      "value": 9.6,
-      "unit": "TB",
-      "used_value": 4.8,
-      "used_unit": "TB"
+      "value": 438.1,
+      "unit": "GB",
+      "used_value": 14.8,
+      "used_unit": "GB"
     },
-    "uptime_minutes": 273850,
-    "load": "0.00, 0.00, 0.00",
-    "os": "Ubuntu 18.04.5 LTS",
+    "uptime_minutes": 114913,
+    "load": "0.69, 0.22, 0.13",
+    "os": "Ubuntu 20.04.6 LTS",
     "arch": "x86_64 (64 Bit)",
-    "kernel": "4.15.0-210-generic",
-    "aes": false,
-    "vmx": false,
-    "virtualization": "KVM"
+    "kernel": "5.4.0-159-generic",
+    "aes": true,
+    "vmx": true,
+    "virtualization": "NONE"
   },
   "network": {
     "primary_network": "IPv4",
     "ipv6_access": false,
     "ipv4_access": true,
-    "isp": "HostHatch",
-    "asn": "AS63473 HostHatch, LLC",
-    "host": "Hatch LLC",
-    "location": "Los Angeles, California-CA, United States"
+    "isp": "Shock Hosting LLC",
+    "asn": "AS395092 Shock Hosting LLC",
+    "host": "Shock",
+    "location": "Sydney, New South Wales-NSW, Australia"
   },
-  "number_of_results": 30,
+  "number_of_results": 25,
   "results": [
     {
       "location": "Nearest",
-      "latency_ms": 0.35,
+      "latency_ms": 0.15,
       "loss": 0,
-      "dl_value": 10505.42,
+      "dl_value": 943.03,
       "dl_unit": "Mbps",
-      "dl_gbps": 10.50542,
-      "up_value": 14284.25,
-      "up_unit": "Mbps",
-      "up_gbps": 14.28425,
-      "server": "Netprotect - Los Angeles, CA"
-    },
-    {
-      "location": "Vancouver, BC",
-      "latency_ms": 31.41,
-      "loss": 0,
-      "dl_value": 3359.29,
-      "dl_unit": "Mbps",
-      "dl_gbps": 3.35929,
-      "up_value": 2454.39,
-      "up_unit": "Mbps",
-      "up_gbps": 2.45439,
-      "server": "TELUS - Vancouver, BC"
-    },
-    {
-      "location": "Calgary, AB",
-      "latency_ms": 45.92,
-      "loss": 0,
-      "dl_value": 5641.17,
-      "dl_unit": "Mbps",
-      "dl_gbps": 5.64117,
-      "up_value": 1641.65,
-      "up_unit": "Mbps",
-      "up_gbps": 1.64165,
-      "server": "Shaw Communications - Calgary, AB"
-    },
-    {
-      "location": "Winnipeg, MB",
-      "latency_ms": 71.8,
-      "loss": 0,
-      "dl_value": 2767.32,
-      "dl_unit": "Mbps",
-      "dl_gbps": 2.7673200000000002,
-      "up_value": 1155.54,
-      "up_unit": "Mbps",
-      "up_gbps": 1.15554,
-      "server": "Voyageur Internet - Winnipeg, MB"
-    },
-    {
-      "location": "Toronto, ON",
-      "latency_ms": 59.98,
-      "loss": 0,
-      "dl_value": 7103.21,
-      "dl_unit": "Mbps",
-      "dl_gbps": 7.10321,
-      "up_value": 1394.81,
-      "up_unit": "Mbps",
-      "up_gbps": 1.3948099999999999,
-      "server": "Bell Canada - Toronto, ON"
-    },
-    {
-      "location": "Montreal, QC",
-      "latency_ms": 81.85,
-      "loss": 0,
-      "dl_value": 6375.79,
-      "dl_unit": "Mbps",
-      "dl_gbps": 6.37579,
-      "up_value": 1181.09,
-      "up_unit": "Mbps",
-      "up_gbps": 1.18109,
-      "server": "Rogers Wireless - Montr\u00e9al, QC"
-    },
-    {
-      "location": "New York, NY",
-      "latency_ms": 66.63,
-      "loss": 0,
-      "dl_value": 4120.09,
-      "dl_unit": "Mbps",
-      "dl_gbps": 4.12009,
-      "up_value": 1273.9,
-      "up_unit": "Mbps",
-      "up_gbps": 1.2739,
-      "server": "Surfshark Ltd - New York, NY"
-    },
-    {
-      "location": "Ashburn, VA",
-      "latency_ms": 67.19,
-      "loss": 0,
-      "dl_value": 3953.33,
-      "dl_unit": "Mbps",
-      "dl_gbps": 3.95333,
-      "up_value": 984.47,
+      "dl_gbps": null,
+      "up_value": 941.35,
       "up_unit": "Mbps",
       "up_gbps": null,
-      "server": "Rackdog - Ashburn, VA"
+      "server": "TasmaNet Pty Ltd - Sydney"
     },
     {
-      "location": "Charlotte, NC",
-      "latency_ms": 76.73,
+      "location": "Kochi, IN",
+      "latency_ms": 185.34,
       "loss": 0,
-      "dl_value": 3732.32,
+      "dl_value": 593.18,
       "dl_unit": "Mbps",
-      "dl_gbps": 3.73232,
-      "up_value": 1341.39,
-      "up_unit": "Mbps",
-      "up_gbps": 1.34139,
-      "server": "Windstream - Charlotte, NC"
-    },
-    {
-      "location": "Atlanta, GA",
-      "latency_ms": 64.93,
-      "loss": 0,
-      "dl_value": 6842.55,
-      "dl_unit": "Mbps",
-      "dl_gbps": 6.84255,
-      "up_value": 1375.51,
-      "up_unit": "Mbps",
-      "up_gbps": 1.37551,
-      "server": "i3D.net - Atlanta, GA"
-    },
-    {
-      "location": "Miami, FL",
-      "latency_ms": 60.82,
-      "loss": 0,
-      "dl_value": 1700.55,
-      "dl_unit": "Mbps",
-      "dl_gbps": 1.70055,
-      "up_value": 1664.52,
-      "up_unit": "Mbps",
-      "up_gbps": 1.66452,
-      "server": "AT&T - Miami, FL"
-    },
-    {
-      "location": "Dallas, TX",
-      "latency_ms": 42.53,
-      "loss": 0,
-      "dl_value": 1859.26,
-      "dl_unit": "Mbps",
-      "dl_gbps": 1.85926,
-      "up_value": 1634.13,
-      "up_unit": "Mbps",
-      "up_gbps": 1.63413,
-      "server": "Hivelocity - Dallas, TX"
-    },
-    {
-      "location": "Houston, TX",
-      "latency_ms": 38.45,
-      "loss": 0,
-      "dl_value": 2926.01,
-      "dl_unit": "Mbps",
-      "dl_gbps": 2.92601,
-      "up_value": 872.17,
+      "dl_gbps": null,
+      "up_value": 591.29,
       "up_unit": "Mbps",
       "up_gbps": null,
-      "server": "Ezee Fiber - Houston, TX"
+      "server": "Asianet Broadband - Cochin"
     },
     {
-      "location": "Kansas, MO",
-      "latency_ms": 39.63,
+      "location": "Bangalore, IN",
+      "latency_ms": 129.17,
       "loss": 0,
-      "dl_value": 2117.11,
+      "dl_value": 824.23,
       "dl_unit": "Mbps",
-      "dl_gbps": 2.1171100000000003,
-      "up_value": 1511.04,
-      "up_unit": "Mbps",
-      "up_gbps": 1.51104,
-      "server": "Xiber LLC - Kansas City, MO"
-    },
-    {
-      "location": "Minneapolis, MN",
-      "latency_ms": 57.22,
-      "loss": 0,
-      "dl_value": 6986.95,
-      "dl_unit": "Mbps",
-      "dl_gbps": 6.98695,
-      "up_value": 652.98,
+      "dl_gbps": null,
+      "up_value": 519.72,
       "up_unit": "Mbps",
       "up_gbps": null,
-      "server": "US Internet - Minneapolis, MN"
+      "server": "Bharti Airtel Ltd - Bangalore"
     },
     {
-      "location": "Chicago, IL",
-      "latency_ms": 56.74,
+      "location": "Chennai, IN",
+      "latency_ms": 128.23,
       "loss": 0,
-      "dl_value": 2427.47,
+      "dl_value": 864.27,
       "dl_unit": "Mbps",
-      "dl_gbps": 2.42747,
-      "up_value": 1415.28,
+      "dl_gbps": null,
+      "up_value": 639.1,
       "up_unit": "Mbps",
-      "up_gbps": 1.4152799999999999,
-      "server": "Enzu.com - Chicago, IL"
+      "up_gbps": null,
+      "server": "Jio - Chennai"
     },
     {
-      "location": "Cleveland, OH",
-      "latency_ms": 65.94,
+      "location": "Mumbai, IN",
+      "latency_ms": 195.87,
       "loss": 0,
-      "dl_value": 2583.59,
+      "dl_value": 774.75,
       "dl_unit": "Mbps",
-      "dl_gbps": 2.58359,
-      "up_value": 1589.11,
+      "dl_gbps": null,
+      "up_value": 338.06,
       "up_unit": "Mbps",
-      "up_gbps": 1.5891099999999998,
-      "server": "Windstream - Cleveland, OH"
+      "up_gbps": null,
+      "server": "i3D.net - Mumbai"
     },
     {
-      "location": "Albuquerque, NM",
-      "latency_ms": 31.12,
+      "location": "Delhi, IN",
+      "latency_ms": 217.19,
       "loss": 0,
-      "dl_value": 5002.65,
+      "dl_value": 473.76,
       "dl_unit": "Mbps",
-      "dl_gbps": 5.00265,
-      "up_value": 2666.01,
+      "dl_gbps": null,
+      "up_value": 203.84,
       "up_unit": "Mbps",
-      "up_gbps": 2.6660100000000004,
-      "server": "Comcast - Albuquerque, NM"
+      "up_gbps": null,
+      "server": "Tata Teleservices Ltd - New Delhi"
     },
     {
-      "location": "Denver, CO",
-      "latency_ms": 28.22,
+      "location": "Seattle, US",
+      "latency_ms": 145.75,
       "loss": 0,
-      "dl_value": 4482.38,
+      "dl_value": 683.53,
       "dl_unit": "Mbps",
-      "dl_gbps": 4.48238,
-      "up_value": 1371.49,
+      "dl_gbps": null,
+      "up_value": 625.41,
       "up_unit": "Mbps",
-      "up_gbps": 1.37149,
-      "server": "T-Mobile Fiber | Intrepid - Denver, CO"
+      "up_gbps": null,
+      "server": "Comcast - Seattle, WA"
     },
     {
-      "location": "Portland, OR",
-      "latency_ms": 24.2,
-      "loss": 0,
-      "dl_value": 3138.74,
+      "location": "Los Angeles, US",
+      "latency_ms": 208.24,
+      "loss": 5.2,
+      "dl_value": 661.21,
       "dl_unit": "Mbps",
-      "dl_gbps": 3.13874,
-      "up_value": 4270.26,
+      "dl_gbps": null,
+      "up_value": 2.01,
       "up_unit": "Mbps",
-      "up_gbps": 4.27026,
-      "server": "CenturyLink - Portland, OR"
-    },
-    {
-      "location": "Las Vegas, NV",
-      "latency_ms": 6.41,
-      "loss": 0,
-      "dl_value": 7942.53,
-      "dl_unit": "Mbps",
-      "dl_gbps": 7.94253,
-      "up_value": 9136.67,
-      "up_unit": "Mbps",
-      "up_gbps": 9.13667,
-      "server": "Dish Wireless - Las Vegas, NV"
-    },
-    {
-      "location": "Salt Lake, UT",
-      "latency_ms": 19.14,
-      "loss": 0,
-      "dl_value": 1928.04,
-      "dl_unit": "Mbps",
-      "dl_gbps": 1.92804,
-      "up_value": 2517.05,
-      "up_unit": "Mbps",
-      "up_gbps": 2.5170500000000002,
-      "server": "Novva Data Centers - Salt Lake City, UT"
-    },
-    {
-      "location": "Phoenix, AZ",
-      "latency_ms": 11.82,
-      "loss": 0,
-      "dl_value": 3164.97,
-      "dl_unit": "Mbps",
-      "dl_gbps": 3.16497,
-      "up_value": 7757.29,
-      "up_unit": "Mbps",
-      "up_gbps": 7.75729,
-      "server": "Xiber LLC - Phoenix, AZ"
-    },
-    {
-      "location": "Los Angeles, CA",
-      "latency_ms": 0.46,
-      "loss": 0,
-      "dl_value": 7386.78,
-      "dl_unit": "Mbps",
-      "dl_gbps": 7.38678,
-      "up_value": 8990.51,
-      "up_unit": "Mbps",
-      "up_gbps": 8.99051,
+      "up_gbps": null,
       "server": "ReliableSite Hosting - Los Angeles, CA"
     },
     {
-      "location": "San Jose, CA",
-      "latency_ms": 13.24,
+      "location": "Dallas, US",
+      "latency_ms": 205.07,
       "loss": 0,
-      "dl_value": 3956.03,
+      "dl_value": 692.69,
       "dl_unit": "Mbps",
-      "dl_gbps": 3.95603,
-      "up_value": 4540.33,
-      "up_unit": "Mbps",
-      "up_gbps": 4.54033,
-      "server": "Misaka Network, Inc. - San Jose, CA"
-    },
-    {
-      "location": "Seattle, WA",
-      "latency_ms": 30.61,
-      "loss": 0,
-      "dl_value": 5047.1,
-      "dl_unit": "Mbps",
-      "dl_gbps": 5.0471,
-      "up_value": 2911.91,
-      "up_unit": "Mbps",
-      "up_gbps": 2.9119099999999998,
-      "server": "Misaka Network, Inc. - Seattle, WA"
-    },
-    {
-      "location": "Anchorage, AK",
-      "latency_ms": 75.97,
-      "loss": 0,
-      "dl_value": 2200.36,
-      "dl_unit": "Mbps",
-      "dl_gbps": 2.2003600000000003,
-      "up_value": 271.04,
+      "dl_gbps": null,
+      "up_value": 451.04,
       "up_unit": "Mbps",
       "up_gbps": null,
-      "server": "Alaska Communications - Anchorage, AK"
+      "server": "Hivelocity - Dallas, TX"
     },
     {
-      "location": "Hermosillo, MX",
-      "latency_ms": 32.97,
+      "location": "Miami, US",
+      "latency_ms": 218.8,
       "loss": 0,
-      "dl_value": 4100.18,
+      "dl_value": 593.67,
       "dl_unit": "Mbps",
-      "dl_gbps": 4.10018,
-      "up_value": 2644.22,
-      "up_unit": "Mbps",
-      "up_gbps": 2.64422,
-      "server": "Megacable - Hermosillo"
-    },
-    {
-      "location": "Guadalajara, MX",
-      "latency_ms": 58.48,
-      "loss": 0,
-      "dl_value": 1672.99,
-      "dl_unit": "Mbps",
-      "dl_gbps": 1.67299,
-      "up_value": 718.78,
+      "dl_gbps": null,
+      "up_value": 408.41,
       "up_unit": "Mbps",
       "up_gbps": null,
-      "server": "AT&T M\u00e9xico - Guadalajara"
+      "server": "AT&T - Miami, FL"
     },
     {
-      "location": "Mexico City, MX",
-      "latency_ms": 42.14,
+      "location": "New York, US",
+      "latency_ms": 270.14,
       "loss": 0,
-      "dl_value": 4501.56,
+      "dl_value": 864.73,
       "dl_unit": "Mbps",
-      "dl_gbps": 4.5015600000000004,
-      "up_value": 1021.99,
+      "dl_gbps": null,
+      "up_value": 334.81,
       "up_unit": "Mbps",
-      "up_gbps": 1.02199,
-      "server": "INFINITUM - Mexico City"
+      "up_gbps": null,
+      "server": "GSL Networks - New York, NY"
+    },
+    {
+      "location": "Toronto, CA",
+      "latency_ms": 202.64,
+      "loss": 0,
+      "dl_value": 497.2,
+      "dl_unit": "Mbps",
+      "dl_gbps": null,
+      "up_value": 436.42,
+      "up_unit": "Mbps",
+      "up_gbps": null,
+      "server": "Rogers - Toronto, ON"
+    },
+    {
+      "location": "London, UK",
+      "latency_ms": 260.81,
+      "loss": 5,
+      "dl_value": 843.43,
+      "dl_unit": "Mbps",
+      "dl_gbps": null,
+      "up_value": 1.1,
+      "up_unit": "Mbps",
+      "up_gbps": null,
+      "server": "VeloxServ Communications - London"
+    },
+    {
+      "location": "Amsterdam, NL",
+      "latency_ms": 279.18,
+      "loss": 0,
+      "dl_value": 826.78,
+      "dl_unit": "Mbps",
+      "dl_gbps": null,
+      "up_value": 306,
+      "up_unit": "Mbps",
+      "up_gbps": null,
+      "server": "31173 Services AB - Amsterdam"
+    },
+    {
+      "location": "Paris, FR",
+      "latency_ms": 294.24,
+      "loss": 0,
+      "dl_value": 816.66,
+      "dl_unit": "Mbps",
+      "dl_gbps": null,
+      "up_value": 49.26,
+      "up_unit": "Mbps",
+      "up_gbps": null,
+      "server": "Axione - Paris"
+    },
+    {
+      "location": "Frankfurt, DE",
+      "latency_ms": 289.2,
+      "loss": 0,
+      "dl_value": 476.1,
+      "dl_unit": "Mbps",
+      "dl_gbps": null,
+      "up_value": 320.7,
+      "up_unit": "Mbps",
+      "up_gbps": null,
+      "server": "23M GmbH - Frankfurt am Main"
+    },
+    {
+      "location": "Warsaw, PL",
+      "latency_ms": 320.96,
+      "loss": 0,
+      "dl_value": 535.33,
+      "dl_unit": "Mbps",
+      "dl_gbps": null,
+      "up_value": 279.37,
+      "up_unit": "Mbps",
+      "up_gbps": null,
+      "server": "UPC Polska - Warszawa"
+    },
+    {
+      "location": "Bucharest, RO",
+      "latency_ms": 288.54,
+      "loss": 5,
+      "dl_value": 575.83,
+      "dl_unit": "Mbps",
+      "dl_gbps": null,
+      "up_value": 1.17,
+      "up_unit": "Mbps",
+      "up_gbps": null,
+      "server": "Vodafone Romania Fixed \u2013 Bucharest - Bucharest"
+    },
+    {
+      "location": "Jeddah, SA",
+      "latency_ms": 189.12,
+      "loss": 5.3,
+      "dl_value": 893.14,
+      "dl_unit": "Mbps",
+      "dl_gbps": null,
+      "up_value": 1.94,
+      "up_unit": "Mbps",
+      "up_gbps": null,
+      "server": "Saudi Telecom Company"
+    },
+    {
+      "location": "Dubai, AE",
+      "latency_ms": 292.23,
+      "loss": 0,
+      "dl_value": 536.04,
+      "dl_unit": "Mbps",
+      "dl_gbps": null,
+      "up_value": 313.8,
+      "up_unit": "Mbps",
+      "up_gbps": null,
+      "server": "du - Dubai"
+    },
+    {
+      "location": "Fujairah, AE",
+      "latency_ms": 261.86,
+      "loss": 5,
+      "dl_value": 799.68,
+      "dl_unit": "Mbps",
+      "dl_gbps": null,
+      "up_value": 1.35,
+      "up_unit": "Mbps",
+      "up_gbps": null,
+      "server": "ETISALAT-UAE - Fujairah"
+    },
+    {
+      "location": "Tokyo, JP",
+      "latency_ms": 98.64,
+      "loss": 0,
+      "dl_value": 731.21,
+      "dl_unit": "Mbps",
+      "dl_gbps": null,
+      "up_value": 859.7,
+      "up_unit": "Mbps",
+      "up_gbps": null,
+      "server": "fdcservers.net - Tokyo"
+    },
+    {
+      "location": "Hong Kong, CN",
+      "latency_ms": 120.89,
+      "loss": 0,
+      "dl_value": 751.26,
+      "dl_unit": "Mbps",
+      "dl_gbps": null,
+      "up_value": 1.81,
+      "up_unit": "Mbps",
+      "up_gbps": null,
+      "server": "STC - Hong Kong"
+    },
+    {
+      "location": "Singapore, SG",
+      "latency_ms": 92.91,
+      "loss": 0,
+      "dl_value": 919.14,
+      "dl_unit": "Mbps",
+      "dl_gbps": null,
+      "up_value": 876.48,
+      "up_unit": "Mbps",
+      "up_gbps": null,
+      "server": "i3D.net - Singapore"
+    },
+    {
+      "location": "Jakarta, ID",
+      "latency_ms": 109.26,
+      "loss": 5,
+      "dl_value": 805.07,
+      "dl_unit": "Mbps",
+      "dl_gbps": null,
+      "up_value": 3.1,
+      "up_unit": "Mbps",
+      "up_gbps": null,
+      "server": "PT. Telekomunikasi Indonesia - Jakarta"
     }
   ],
   "stats": {
-    "avg_dl_value": 4317.53,
+    "avg_dl_value": 710.24,
     "avg_dl_unit": "Mbps",
-    "avg_up_value": 2841.46,
+    "avg_up_value": 326.5,
     "avg_up_unit": "Mbps",
-    "total_dl_value": 161,
+    "total_dl_value": 26.44,
     "total_dl_unit": "GB",
-    "total_up_value": 108.77,
+    "total_up_value": 11.44,
     "total_up_unit": "GB",
-    "total_data_value": 269.77,
+    "total_data_value": 37.88,
     "total_data_unit": "GB",
-    "duration": "00:13:13"
+    "duration": "00:14:47"
   },
-  "parsed_at" : "2023-11-25 20:55:43"
+  "parsed_at": "2023-11-27 12:08:25"
 }
  ```

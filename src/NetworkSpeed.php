@@ -157,7 +157,6 @@ class NetworkSpeed
         preg_match('/Total Script Runs\s+:\s+(\d+)/', $data, $totalScriptRunsMatches);
 
         return $this->parsed = [
-            'success' => true,
             'id' => explode('_', $this->filename)[1] ?? null,
             'filename' => $this->filename,
             'version' => $version,
@@ -228,10 +227,13 @@ class NetworkSpeed
 
     public function outputAsJson(): false|string
     {
+        header('Content-Type: application/json');
+
         $data = $this->fetchRaw();
 
         if (!$data) {
-            return json_encode(['success' => false, 'message' => 'Could not fetch valid results'], JSON_PRETTY_PRINT);
+            http_response_code(400);
+            return json_encode(['message' => 'Could not fetch valid results'], JSON_PRETTY_PRINT);
         }
 
         if ($this->isCompatibleVersion()) {
@@ -239,12 +241,14 @@ class NetworkSpeed
             try {
                 return json_encode($this->asJson(), JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT);
             } catch (\Exception $exception) {
-                return json_encode(['success' => false, 'message' => 'Sorry there was an error parsing this'], JSON_PRETTY_PRINT);
+                http_response_code(500);
+                return json_encode(['message' => 'Sorry there was an error parsing this'], JSON_PRETTY_PRINT);
             }
 
         }
 
-        return json_encode(['success' => false, 'message' => 'This is an older incompatible version'], JSON_PRETTY_PRINT);
+        http_response_code(400);
+        return json_encode(['message' => 'This is an older incompatible version'], JSON_PRETTY_PRINT);
     }
 
     public function isCompatibleVersion(string $min_version = '2023.08.28', bool $must_match = false): bool

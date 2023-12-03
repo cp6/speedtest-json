@@ -127,10 +127,10 @@ class NetworkSpeed
                     'loss' => (float)$matches[3],
                     'dl_value' => (float)$dl_array[0],
                     'dl_unit' => $dl_array[1],
-                    'dl_gbps' => ($dl_array[0] > 1000) ? $dl_array[0] / 1000 : null,
+                    'dl_gbps' => ($dl_array[0] > 1000) ? (float)number_format($dl_array[0] / 1000, 3) : null,
                     'up_value' => (float)$up_array[0],
                     'up_unit' => $up_array[1],
-                    'up_gbps' => ($up_array[0] > 1000) ? $up_array[0] / 1000 : null,
+                    'up_gbps' => ($up_array[0] > 1000) ? (float)number_format($up_array[0] / 1000, 3) : null,
                     'server' => trim($matches[6]),
                 ];
 
